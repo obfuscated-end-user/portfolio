@@ -10,17 +10,18 @@
 	</head>
 	<body>
 		<!--
-		i'm using class because i'm planning to use the styles multiple times
-		in the near future.
+		i'm using a class because i'm planning to use the styles multiple times
+		in the near future. i'm thinking of doing a "multiple windows" thing
+		that previews my projects on a part of the screen.
 		-->
 		<br>
 		<div class="window">
 			<div class="title-bar">
 				<div class="title"><img src="https://winaero.com/blog/wp-content/uploads/2015/09/console-cmd-icon.png" style="height: 1em;">	C:\Users\obfuscated-end-user - Command Prompt</div>
 				<div class="window-buttons">
-					<button class="btn minimize">🗕︎&#xFE0E;</button>
-					<button class="btn maximize">🗗︎&#xFE0E;</button>
-					<button class="btn close">🗙︎&#xFE0E;</button>
+					<button class="btn minimize">_</button>
+					<button class="btn maximize">❐</button>
+					<button class="btn close">×</button>
 				</div>
 			</div>
 			<div class="content">
@@ -28,79 +29,85 @@
 				<canvas id="matrix-canvas"></canvas>
 				<div id="main">
 					<!-- <h1>Welcome to my Portfolio.</h1> -->
-					<h1>PORTFOLIO (WIP)</h1>
+					<h1>PORTFOLIO</h1>
 					<h3 class="list-header">About me</h3>
-					<p>
+					<p id="about-me-paragraph">
 						Hello there, I'm FAKE_NAME. I'm a programmer and I like to play around stuff. I studied computer science for 4 years at UNIVERSITY_NAME. I currently reside at FAKE_ADDRESS.
 					</p>
 					<p>
-						<!-- DON'T FORGET TO TAKE THIS OFF -->
+						I'm open to learning new things to improve myself and other parties involved.
+					</p>
+					<!--
+					<p>
 						PLEASE HIRE ME
 					</p>
+					-->
 					<h3 class="list-header">Projects</h3>
 					<ul>
-						<li><span class="list-marker">🔁&#xFE0E;</span> <a href="https://github.com/obfuscated-end-user/automata_project" target="_blank" rel="noopener noreferrer">Automaton simulator</a></li>
-						<li><span class="list-marker">🍎&#xFE0E;</span> <a href="https://github.com/obfuscated-end-user/bad_apple" target="_blank" rel="noopener noreferrer">Bad Apple!! in the terminal</a></li>
-						<li><span class="list-marker">📓&#xFE0E;</span> <a href="https://github.com/obfuscated-end-user/notes" target="_blank" rel="noopener noreferrer">College projects</a></li>
+						<li><span class="list-marker">🔁</span> <a href="https://github.com/obfuscated-end-user/automata_project" target="_blank" rel="noopener noreferrer">Automaton simulator</a></li>
+						<li><span class="list-marker">🍎</span> <a href="https://github.com/obfuscated-end-user/bad_apple" target="_blank" rel="noopener noreferrer">Bad Apple!! in the terminal</a></li>
+						<li><span class="list-marker">📓</span> <a href="https://github.com/obfuscated-end-user/notes" target="_blank" rel="noopener noreferrer">College projects</a></li>
 						<!-- <li><span class="list-marker">></span> Brainf*ck interpreter (WIP)</li> -->
-						<li><span class="list-marker">📀&#xFE0E;</span> <a href="https://github.com/obfuscated-end-user/kanna" target="_blank" rel="noopener noreferrer">Fake malware popup</a></li>
-						<li><span class="list-marker">🍰&#xFE0E;</span> <a href="https://github.com/obfuscated-end-user/FoodMentor" target="_blank" rel="noopener noreferrer">FoodMentor: detect food from images</a></li>
-						<li><span class="list-marker">♔</span> JavaScript Chess (WIP)</li>
-						<li><span class="list-marker">🎮&#xFE0E;</span> Nintendo Entertainment System (NES) emulator (WIP)</li>
-						<li><span class="list-marker">💼&#xFE0E;</span> <a href="https://github.com/obfuscated-end-user/portfolio" target="_blank" rel="noopener noreferrer">Portfolio (this site)</a></li>
-						<li><span class="list-marker">🤖&#xFE0E;</span> <a href="https://github.com/obfuscated-end-user/Sucrose" target="_blank" rel="noopener noreferrer">Sucrose: Discord music bot</a></li>
+						<li><span class="list-marker">📀</span> <a href="https://github.com/obfuscated-end-user/kanna" target="_blank" rel="noopener noreferrer">Fake malware popup</a></li>
+						<li><span class="list-marker">🍰</span> <a href="https://github.com/obfuscated-end-user/FoodMentor" target="_blank" rel="noopener noreferrer">FoodMentor: detect food from images</a></li>
+						<li><span class="list-marker">♟️</span> <a href="https://github.com/obfuscated-end-user/knight.ly" target="_blank" rel="noopener noreferrer">Chess written in TypeScript and React</a></li>
+						<li><span class="list-marker">🎮</span> Nintendo Entertainment System (NES) emulator (WIP)</li>
+						<li><span class="list-marker">💼</span> <a href="https://github.com/obfuscated-end-user/portfolio" target="_blank" rel="noopener noreferrer">Portfolio (this site)</a></li>
+						<li><span class="list-marker">🤖</span> <a href="https://github.com/obfuscated-end-user/Sucrose" target="_blank" rel="noopener noreferrer">Sucrose: Discord music bot</a></li>
 						<!-- <li>> Vigenere cipher encoder/decoder</li> -->
 					</ul>
 					<p class="divider"></p>
 					<h3 class="list-header">Programming languages</h3>
 					<ul>
-						<li><span class="list-marker">➕&#xFE0E;</span> <a href="https://github.com/obfuscated-end-user/CPP" target="_blank" rel="noopener noreferrer">C++</a></li>
+						<li><span class="list-marker">➕</span> <a href="https://github.com/obfuscated-end-user/CPP" target="_blank" rel="noopener noreferrer">C++</a></li>
 						<li><span class="list-marker">{}</span> CSS</li>
-						<li><span class="list-marker"><></span> HTML</li>
-						<li><span class="list-marker">☕&#xFE0E;</span> JavaScript</li>
-						<li><span class="list-marker">🐍&#xFE0E;</span> Python</li>
-						<li><span class="list-marker">🕗&#xFE0E;</span> Procrastinating</li>
+						<li><span class="list-marker">&lt;&gt;</span> HTML</li>
+						<li><span class="list-marker">☕</span> JavaScript</li>
+						<li><span class="list-marker">🐍</span> Python</li>
+						<!-- <li><span class="list-marker">🕗</span> Procrastinating</li> -->
 					</ul>
 					<p class="divider"></p>
 					<h3 class="list-header">Other skills</h3>
 					<ul>
-						<li><span class="list-marker">©</span> C</li>
-						<li><span class="list-marker">♯</span> C#</li>
-						<li><span class="list-marker">🌐&#xFE0E;</span> Flask (Python)</li>
-						<li><span class="list-marker">☕&#xFE0E;</span> Java</li>
-						<li><span class="list-marker">📈&#xFE0E;</span> Machine learning</li>
-						<li><span class="list-marker">🐘&#xFE0E;</span> PHP</li>
-						<li><span class="list-marker">⚛&#xFE0E;</span> React (JS framework)</li>
-						<li><span class="list-marker">🗗︎&#xFE0E;</span> SQL</li>
-						<li><span class="list-marker">🎨&#xFE0E;</span> UI/UX design (kind of)</li>
+						<li><span class="list-marker">💻</span> C</li>
+						<li><span class="list-marker">＃</span> C#</li>
+						<li><span class="list-marker">🧪</span> Flask (Python)</li>
+						<li><span class="list-marker">🔧</span> Git</li>
+						<li><span class="list-marker">☕</span> <a href="https://github.com/obfuscated-end-user/Java" target="_blank" rel="noopener noreferrer">Java</a></li>
+						<li><span class="list-marker">📈</span> Machine learning</li>
+						<li><span class="list-marker">🐘</span> PHP</li>
+						<li><span class="list-marker">⚛️</span> React (JS framework)</li>
+						<li><span class="list-marker">📊</span> SQL</li> 
+						<li><span class="list-marker">💻</span> TypeScript</li> 
+						<li><span class="list-marker">🎨</span> UI/UX design</li>
 					</ul>
 					<p class="divider"></p>
 					<h3 class="list-header">Languages spoken</h3>
 					<ul>
 						<li><span class="list-marker">🇵🇭</span> Tagalog</li>
 						<li><span class="list-marker">🇺🇸 🇬🇧</span> English</li>
-						<li><span class="list-marker">🇯🇵</span> Japanese (not much)</li>
+						<!-- <li><span class="list-marker">🇯🇵</span> Japanese (not much)</li> -->
 					</ul>
 					<p class="divider"></p>
 					<h3 class="list-header">External links</h3>
 					<ul>
-						<li><span class="list-marker">🐱&#xFE0E;</span> <a href="https://github.com/obfuscated-end-user" target="_blank" rel="noopener noreferrer">GitHub</a></li>
-						<li><span class="list-marker">🤝&#xFE0E;</span> <a href="https://youtu.be/dQw4w9WgXcQ" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-						<li><span class="list-marker">📄&#xFE0E;</span> <a href="https://youtu.be/dQw4w9WgXcQ" target="_blank" rel="noopener noreferrer">Résumé</a></li>
+						<li><span class="list-marker">🐱</span> <a href="https://github.com/obfuscated-end-user" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+						<li><span class="list-marker">🤝</span> <a id="linkedin-account" href="https://youtu.be/dQw4w9WgXcQ" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+						<!-- <li><span class="list-marker">📄</span> <a href="https://youtu.be/dQw4w9WgXcQ" target="_blank" rel="noopener noreferrer">Résumé</a></li> -->
 					</ul>
 					<p class="divider"></p>
 					<h3 class="list-header">Contact me</h3>
 					<ul>
-						<li><span class="list-marker">✉</span> <a href="mailto:test123@gmail.com">test123@gmail.com</a></li>
-						<li><span class="list-marker">☏</span> +63 912 345 6789 / 0912 345 6789</li>
+						<li><span class="list-marker">📩</span> <a id="personal-email" href="mailto:test123@gmail.com"></a></li>
+						<li id="phone-number"><span class="list-marker">📞</span></li>
 					</ul>
-					<p class="divider"></p>
+					<!-- <p class="divider"></p>
 					<h3 class="list-header">Bonus</h3>
 					<ul>
-						<li><span class="list-marker">🪄&#xFE0E;</span> <a id="show-frieren-anchor" onclick="showFrieren()"></a></li>
+						<li><span class="list-marker">🪄</span> <a id="show-frieren-anchor" onclick="showFrieren()"></a></li>
 					</ul>
 					<ul id="frieren"></ul>
-					<br>
+					<br> -->
 				</div>
 			</div>
 		</div>

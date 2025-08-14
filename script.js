@@ -29,6 +29,18 @@ const loadingBarLength = Math.max(
 );
 let loadingBarProgress = 0;
 
+let aboutMeParagraph = document.getElementById("about-me-paragraph");
+aboutMeParagraph.innerHTML = atob("SGVsbG8gdGhlcmUsIEknbSBBcnR1eiBKYXJyZWQgQ2FwYXRpLiBJJ20gYSBwcm9ncmFtbWVyIGFuZCBJIGxpa2UgdG8gd3JpdGUgY29kZS4gSSBzdHVkaWVkIGNvbXB1dGVyIHNjaWVuY2UgZm9yIDQgeWVhcnMgYXQgRGUgTGEgU2FsbGUgVW5pdmVyc2l0eSDigJMgRGFzbWFyacOxYXMuIEkgY3VycmVudGx5IHJlc2lkZSBhdCBJbXVzLCBDYXZpdGUu");
+
+let personalEmail = document.getElementById("personal-email");
+personalEmail.innerHTML = atob("YXJ0dXpqYXJyZWRjYXBhdGlAZ21haWwuY29t");
+
+let linkedInAccount = document.getElementById("linkedin-account");
+linkedInAccount.href = atob("aHR0cHM6Ly93d3cubGlua2VkaW4uY29tL2luL2FydHV6LWphcnJlZC1jLTkwNDEzOTMxMA==");
+
+let phoneNumber = document.getElementById("phone-number");
+phoneNumber.innerHTML = atob("IyArNjMgOTI1IDcwNiA5MDM0IC8gMDkyNSA3MDYgOTAzNA==");
+
 // https://stackoverflow.com/questions/4959975/generate-random-number-between-two-numbers-in-javascript
 function randomIntFromInterval(min, max) {
 	return Math.floor(Math.random() * (max - min + 1) + min);
@@ -50,37 +62,35 @@ function updateFakeLoadingBar() {
 
 updateFakeLoadingBar();
 
-function typingEffect(element, text, interval, i=0) {
+function typingEffect(el, text, interval, i=0) {
 	if (i === 0) {
-		element.textContent = "";
+		el.textContent = "";
 		const cursor = document.createElement("span");
 		cursor.classList.add("fake-cursor");
-		// cursor.textContent = "█";
-		cursor.textContent = "|";
-		element.appendChild(cursor);
+		cursor.textContent = "|";	// "█"
+		el.appendChild(cursor);
 	}
-	const cursor = element.querySelector(".fake-cursor");
-	if (cursor) element.removeChild(cursor);
-	element.textContent += text[i];
-	if (cursor) element.appendChild(cursor);
+	const cursor = el.querySelector(".fake-cursor");
+	if (cursor) el.removeChild(cursor);
+	el.textContent += text[i];
+	if (cursor) el.appendChild(cursor);
 	if (i === text.length - 1) {
-		setTimeout(() => { element.removeChild(cursor); }, 5000);
+		setTimeout(() => { el.removeChild(cursor); }, 5000);
 		return;
 	}
-	setTimeout(() => typingEffect(element, text, interval, i + 1), interval);
+	setTimeout(() => typingEffect(el, text, interval, i + 1), interval);
 }
 
-function tempStoreText(element) {
-	temp = element.textContent;
-	element.innerHTML = "";
+function tempStoreText(el) {
+	temp = el.textContent;
+	el.innerHTML = "";
 	return temp;
 }
 
 function randomChars(length) {
 	let result = "";
 	let chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-	// let chars = "▁▂▃▄▅▆▇█";
-	// let chars = ".ıilI";
+	// "▁▂▃▄▅▆▇█" ".ıilI"
 	for (let i = 0; i < length; i++)
 		result += chars.charAt(Math.floor(Math.random() * chars.length));
 	return result;
@@ -102,10 +112,10 @@ function constantlyChangingChars(el) {
 	}, 100);
 }
 
-const frierenUnorderedList = document.getElementById("frieren");
-frierenUnorderedList.style.display = "none";
+/* const frierenUnorderedList = document.getElementById("frieren");
+frierenUnorderedList.style.display = "none"; */
 
-function createFrieren() {
+/* function createFrieren() {
 	const frierenString = `
 	⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⠠⠤⠤⠤⠤⠤⠤⠀⣀⣀⣀⠀⠀⢀⡀⢀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 	⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡤⡒⠉⠀⠀⠀⠒⠲⠤⡀⠀⠀⠀⠈⠙⠻⣷⠿⢄⡀⠀⠑⢄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
@@ -146,12 +156,12 @@ function createFrieren() {
 		});
 	} else
 		console.error("Frieren not found. ＜(´⌯ ̫⌯`)＞");
-}
+} */
 
-function showFrieren() {
+/* function showFrieren() {
 	if (frierenUnorderedList.style.display === "none") {
 		frierenUnorderedList.style.display = "block";
-		createFrieren();
+		// createFrieren();
 		frierenListItems = frierenUnorderedList.getElementsByTagName("li");
 		const zoltraakLi = document.createElement("li");
 		zoltraakLi.innerHTML = "ZOLTRAAK!"
@@ -168,14 +178,14 @@ function showFrieren() {
 		frierenUnorderedList.innerHTML = "";
 		frierenUnorderedList.style.display = "none";
 	}
-}
+} */
 
 const showFrierenAnchor = document.getElementById("show-frieren-anchor");
-showFrierenAnchor.innerHTML = isMobile ? "Tap here!" : "Click here!";
+// showFrierenAnchor.innerHTML = isMobile ? "Tap here!" : "Click here!";
 
-showFrierenAnchor.addEventListener("click", () => {
+/* showFrierenAnchor.addEventListener("click", () => {
 	frierenUnorderedList.scrollIntoView({ behavior: "smooth" });
-});
+}); */
 
 setTimeout(() => {
 	mainDiv.style.display = "block";
@@ -255,7 +265,7 @@ setTimeout(() => {
 			drops[x] = Math.random() * canvas.height;
 	}
 
-	// i need it to be fullwidth because they simply look better
+	// i need it to be in fullwidth simply because they look better
 	const matrixChars =
 	"アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズヅブプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポヴッンＡＢＣＤＥＦＧＨＩＪＫＬＭＮＯＰＱＲＳＴＵＶＷＸＹＺ０１２３４５６７８９";
 	const matrixCharsArray = matrixChars.split("");
@@ -292,7 +302,7 @@ setTimeout(() => {
 	}
 
 	draw();
-}, 10000);	// transition to next screen after 10 seconds
+}, 1);	// transition to next screen after 10 seconds
 
 let copyright = document.getElementById("copyright");
 copyright.innerHTML = `©${new Date().getFullYear()} 横浜/obfuscated-end-user.`;

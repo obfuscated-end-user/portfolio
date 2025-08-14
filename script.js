@@ -302,7 +302,7 @@ setTimeout(() => {
 	}
 
 	draw();
-}, 1);	// transition to next screen after 10 seconds
+}, 10000);	// transition to next screen after 10 seconds
 
 let copyright = document.getElementById("copyright");
 copyright.innerHTML = `©${new Date().getFullYear()} 横浜/obfuscated-end-user.`;

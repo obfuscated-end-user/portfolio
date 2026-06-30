@@ -32,14 +32,15 @@ let loadingBarProgress = 0;
 let aboutMeParagraph = document.getElementById("about-me-paragraph");
 aboutMeParagraph.innerHTML = atob("SGVsbG8gdGhlcmUsIEknbSBBcnR1eiBKYXJyZWQgQ2FwYXRpLiBJJ20gYSBwcm9ncmFtbWVyIGFuZCBJIGxpa2UgdG8gd3JpdGUgY29kZS4gSSBzdHVkaWVkIGNvbXB1dGVyIHNjaWVuY2UgZm9yIDQgeWVhcnMgYXQgRGUgTGEgU2FsbGUgVW5pdmVyc2l0eSDigJMgRGFzbWFyacOxYXMuIEkgY3VycmVudGx5IHJlc2lkZSBhdCBJbXVzLCBDYXZpdGUu");
 
+// also try to change mailto: anchor
 let personalEmail = document.getElementById("personal-email");
 personalEmail.innerHTML = atob("YXJ0dXpqYXJyZWRjYXBhdGlAZ21haWwuY29t");
 
 let linkedInAccount = document.getElementById("linkedin-account");
-linkedInAccount.href = atob("aHR0cHM6Ly93d3cubGlua2VkaW4uY29tL2luL2FydHV6LWphcnJlZC1jLTkwNDEzOTMxMA==");
+linkedInAccount.href = atob("aHR0cHM6Ly93d3cubGlua2VkaW4uY29tL2luL2FydHV6LWphcnJlZC1jLTkwNDEzOTMxMA");
 
 let phoneNumber = document.getElementById("phone-number");
-phoneNumber.innerHTML = atob("IyArNjMgOTI1IDcwNiA5MDM0IC8gMDkyNSA3MDYgOTAzNA==");
+phoneNumber.innerHTML = atob("IyArNjMgOTI1IDcwNiA5MDM0IC8gMDkyNSA3MDYgOTAzNA");
 
 // https://stackoverflow.com/questions/4959975/generate-random-number-between-two-numbers-in-javascript
 function randomIntFromInterval(min, max) {
@@ -55,13 +56,14 @@ function updateFakeLoadingBar() {
 
 	if (loadingBarProgress < 100) {
 		loadingBarProgress += 2;
-		setTimeout(updateFakeLoadingBar, randomIntFromInterval(80, 150));
+		setTimeout(updateFakeLoadingBar, randomIntFromInterval(80, 150));	// 80, 150
 	} else
 		loadingDiv.innerHTML = `For the best experience, view this site on a desktop device.<br><br>Setup complete.<br><br>${bar} 100%<br><br>Initializing modules...<br><br>`
 }
 
 updateFakeLoadingBar();
 
+// this breaks on unicode characters
 function typingEffect(el, text, interval, i=0) {
 	if (i === 0) {
 		el.textContent = "";
@@ -247,9 +249,7 @@ setTimeout(() => {
 	);
 
 	dividerTags = document.getElementsByClassName("divider");
-	Object.values(dividerTags).forEach(
-		pd => constantlyChangingChars(pd)
-	);
+	Object.values(dividerTags).forEach(pd => constantlyChangingChars(pd));
 
 	// MATRIX BACKGROUND EFFECT
 	const canvas = document.getElementById("matrix-canvas");
@@ -293,8 +293,7 @@ setTimeout(() => {
 			const y = drops[i] * fontSize;
 			ctx.fillText(text, x, y);
 
-			if (y > canvas.height && Math.random() > 0.975)
-				drops[i] = 0;
+			if (y > canvas.height && Math.random() > 0.975) drops[i] = 0;
 
 			drops[i] += 1;
 		}

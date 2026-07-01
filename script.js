@@ -30,17 +30,29 @@ const loadingBarLength = Math.max(
 let loadingBarProgress = 0;
 
 let aboutMeParagraph = document.getElementById("about-me-paragraph");
-aboutMeParagraph.innerHTML = atob("SGVsbG8gdGhlcmUsIEknbSBBcnR1eiBKYXJyZWQgQ2FwYXRpLiBJJ20gYSBwcm9ncmFtbWVyIGFuZCBJIGxpa2UgdG8gd3JpdGUgY29kZS4gSSBzdHVkaWVkIGNvbXB1dGVyIHNjaWVuY2UgZm9yIDQgeWVhcnMgYXQgRGUgTGEgU2FsbGUgVW5pdmVyc2l0eSDigJMgRGFzbWFyacOxYXMuIEkgY3VycmVudGx5IHJlc2lkZSBhdCBJbXVzLCBDYXZpdGUu");
+aboutMeParagraph.innerHTML = base64ToText("SGVsbG8gdGhlcmUsIEknbSBBcnR1eiBKYXJyZWQgQ2FwYXRpLiBJJ20gYSBwcm9ncmFtbWVyIGFuZCBJIGxpa2UgdG8gd3JpdGUgY29kZS4gSSBzdHVkaWVkIGNvbXB1dGVyIHNjaWVuY2UgZm9yIDQgeWVhcnMgYXQgRGUgTGEgU2FsbGUgVW5pdmVyc2l0eSDigJMgRGFzbWFyacOxYXMuIEkgY3VycmVudGx5IHJlc2lkZSBhdCBJbXVzLCBDYXZpdGUu");
 
-// also try to change mailto: anchor
 let personalEmail = document.getElementById("personal-email");
-personalEmail.innerHTML = atob("YXJ0dXpqYXJyZWRjYXBhdGlAZ21haWwuY29t");
+personalEmail.innerHTML = base64ToText("YXJ0dXpqYXJyZWRjYXBhdGlAZ21haWwuY29t");
+personalEmail.href = "mailto:" + base64ToText("YXJ0dXpqYXJyZWRjYXBhdGlAZ21haWwuY29t");
 
 let linkedInAccount = document.getElementById("linkedin-account");
-linkedInAccount.href = atob("aHR0cHM6Ly93d3cubGlua2VkaW4uY29tL2luL2FydHV6LWphcnJlZC1jLTkwNDEzOTMxMA");
+linkedInAccount.href = base64ToText("aHR0cHM6Ly93d3cubGlua2VkaW4uY29tL2luL2FydHV6LWphcnJlZC1jLTkwNDEzOTMxMA");
 
 let phoneNumber = document.getElementById("phone-number");
-phoneNumber.innerHTML = atob("IyArNjMgOTI1IDcwNiA5MDM0IC8gMDkyNSA3MDYgOTAzNA");
+phoneNumber.innerHTML = base64ToText("IyArNjMgOTI1IDcwNiA5MDM0IC8gMDkyNSA3MDYgOTAzNA");
+
+// atob() sucks
+function base64ToText(b64) {
+	b64 = b64.replace(/-/g, "+").replace(/_/g, "/");
+	
+	while (b64.length % 4) b64 += "=";
+	
+	const binary = atob(b64);
+	const bytes = Uint8Array.from(binary, c => c.charCodeAt(0));
+	
+	return new TextDecoder("utf-8").decode(bytes);
+}
 
 // https://stackoverflow.com/questions/4959975/generate-random-number-between-two-numbers-in-javascript
 function randomIntFromInterval(min, max) {
@@ -63,7 +75,6 @@ function updateFakeLoadingBar() {
 
 updateFakeLoadingBar();
 
-// this breaks on unicode characters
 function typingEffect(el, text, interval, i=0) {
 	if (i === 0) {
 		el.textContent = "";
@@ -301,7 +312,7 @@ setTimeout(() => {
 	}
 
 	draw();
-}, 10000);	// transition to next screen after 10 seconds
+}, 1);	// transition to next screen after 10 seconds 10000
 
 let copyright = document.getElementById("copyright");
 copyright.innerHTML = `©${new Date().getFullYear()} 横浜/obfuscated-end-user.`;

@@ -125,10 +125,10 @@ function constantlyChangingChars(el) {
 	}, 100);
 }
 
-/* const frierenUnorderedList = document.getElementById("frieren");
-frierenUnorderedList.style.display = "none"; */
+const frierenUnorderedList = document.getElementById("frieren");
+frierenUnorderedList.style.display = "none";
 
-/* function createFrieren() {
+function createFrieren() {
 	const frierenString = `
 	⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⠠⠤⠤⠤⠤⠤⠤⠀⣀⣀⣀⠀⠀⢀⡀⢀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 	⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡤⡒⠉⠀⠀⠀⠒⠲⠤⡀⠀⠀⠀⠈⠙⠻⣷⠿⢄⡀⠀⠑⢄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
@@ -169,12 +169,12 @@ frierenUnorderedList.style.display = "none"; */
 		});
 	} else
 		console.error("Frieren not found. ＜(´⌯ ̫⌯`)＞");
-} */
+}
 
-/* function showFrieren() {
+function showFrieren() {
 	if (frierenUnorderedList.style.display === "none") {
 		frierenUnorderedList.style.display = "block";
-		// createFrieren();
+		createFrieren();
 		frierenListItems = frierenUnorderedList.getElementsByTagName("li");
 		const zoltraakLi = document.createElement("li");
 		zoltraakLi.innerHTML = "ZOLTRAAK!"
@@ -191,14 +191,14 @@ frierenUnorderedList.style.display = "none"; */
 		frierenUnorderedList.innerHTML = "";
 		frierenUnorderedList.style.display = "none";
 	}
-} */
+}
 
 const showFrierenAnchor = document.getElementById("show-frieren-anchor");
-// showFrierenAnchor.innerHTML = isMobile ? "Tap here!" : "Click here!";
+showFrierenAnchor.innerHTML = isMobile ? "Tap here!" : "Click here!";
 
-/* showFrierenAnchor.addEventListener("click", () => {
+showFrierenAnchor.addEventListener("click", () => {
 	frierenUnorderedList.scrollIntoView({ behavior: "smooth" });
-}); */
+});
 
 setTimeout(() => {
 	mainDiv.style.display = "block";
@@ -312,7 +312,7 @@ setTimeout(() => {
 	}
 
 	draw();
-}, 10000);	// transition to next screen after 10 seconds
+}, 1);	// transition to next screen after 10 seconds
 
 let copyright = document.getElementById("copyright");
 copyright.innerHTML = `©${new Date().getFullYear()} 横浜/obfuscated-end-user.`;

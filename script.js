@@ -265,12 +265,19 @@ setTimeout(() => {
 	// MATRIX BACKGROUND EFFECT
 	const canvas = document.getElementById("matrix-canvas");
 	const ctx = canvas.getContext("2d");
+	const charWidth = ctx.measureText("Ａ").width;
+	const dpr = window.devicePixelRatio || 1;
+	canvas.width = window.innerWidth * dpr;
+	canvas.height = window.innerHeight * dpr;
+	canvas.style.width = `${window.innerWidth}px`;
+	// canvas.style.height = `${window.innerHeight}px`;
+	ctx.scale(dpr, dpr);
 
 	function resizeCanvas() {
 		canvas.width = window.innerWidth;
 		canvas.height = window.innerHeight;
 
-		columns = Math.floor(canvas.width / fontSize);
+		columns = Math.floor(canvas.width / charWidth);
 		drops.length = 0;
 		for (let x = 0; x < columns; x++)
 			drops[x] = Math.random() * canvas.height;
@@ -293,14 +300,15 @@ setTimeout(() => {
 		ctx.fillRect(0, 0, canvas.width, canvas.height);
 
 		ctx.fillStyle = "lime";
-		ctx.font = `${fontSize}px monospace`;
+		ctx.font =
+`${fontSize}px "MS Gothic","Yu Gothic UI","Consolas",monospace`;
 
 		for (let i = 0; i < drops.length; i++) {
 			const text = matrixCharsArray[
 				Math.floor(Math.random() * matrixCharsArray.length)
 			];
 
-			const x = i * fontSize;
+			const x = i * charWidth;
 			const y = drops[i] * fontSize;
 			ctx.fillText(text, x, y);
 
@@ -312,7 +320,7 @@ setTimeout(() => {
 	}
 
 	draw();
-}, 1);	// transition to next screen after 10 seconds
+}, 10000);	// transition to next screen after 10 seconds
 
 let copyright = document.getElementById("copyright");
 copyright.innerHTML = `©${new Date().getFullYear()} 横浜/obfuscated-end-user.`;

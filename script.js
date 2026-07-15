@@ -167,8 +167,7 @@ function createFrieren() {
 			li.style.color = "lime";
 			frierenUnorderedList.appendChild(li);
 		});
-	} else
-		console.error("Frieren not found. ＜(´⌯ ̫⌯`)＞");
+	} else console.error("Frieren not found. ＜(´⌯ ̫⌯`)＞");
 }
 
 function showFrieren() {
